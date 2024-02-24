@@ -1,0 +1,216 @@
+TDL = Tally Development Language
+
+TDL is a language based on definitions. It is possible to reuse the existing definitions and deploy
+them.
+
+
+			 Integration Capability
+
+	 other applications.The following are the different types of integrations possible in Tally.ERP 9:
+  Tally.ERP 9 to Tally.ERP 9 using Sync
+  Tally.ERP 9 to external applications in various data formats
+  External DB to Tally.ERP 9 using XML and SDF formats
+  Tally.ERP 9 DB to external applications using ODBC
+  External DB to Tally.ERP 9 using ODBC
+
+				 Definition Language
+ TDL has User Interface Objects like Reports, Forms, Parts, Lines and Fields as definitions.
+TDL is based on concepts pertaining to Object Oriented Programming. This language has been
+ created for reusability. Once a definition is created, it can be reused any number of times. Besides
+ the reusing capability, the user can also add new features, along with the existing definitions.
+
+the Interfaces which are visible on the screen are Menu, Report, Button and Table.
+
+NOTE :-  A Report and Menu can exist independently. A Menu is created by adding items to it while a
+ Report is created using Form, Part, Line and Field. These are the definitions which cannot exist
+ without a Report.
+
+ The hierarchy of these definitions is as follows:
+  Report uses a Form
+  Form uses a Part
+  Part uses a Line
+  Line uses a Field
+  Field is where the contents are displayed or entered 
+
+
+
+				‘Hello TDL’ Program
+ [#Menu : Gateway of Tally]
+ Item : First TDL : Display : First TDL Report
+ [Report : First TDL Report]
+ Form : First TDL Form
+ [Form : First TDL Form]
+ Parts : First TDL Part
+ [Part : First TDL Part]  
+Lines : First TDL Line
+ [Line : First TDL Line] 
+Fields : First TDL Field
+ [Field : First TDL Field]
+ Set as : "Welcome to the world of TDL"
+
+TDL Components
+ The TDL consists of Definitions, Attributes, Modifiers, Data Types, Operators, Symbols and
+ Prefixes, and Functions.
+				TDL Components
+ The TDL consists of Definitions, Attributes, Modifiers, Data Types, Operators, Symbols and
+ Prefixes, and Functions. Let us now analyse the components of the language
+
+				Definitions
+ Tally Definition Language (TDL) is a non-procedural programming language based on definitions.
+ TDL works on named definitions. The biggest advantage of working with TDL is its re-usability of
+ definitions.
+
+ <Definition type> is the name of one of the predefined definition types available in the platform,
+ example, Collection, Menu, Report, Form, Part, Line, etc.
+ <Definition Name> refers to any user-defined name, which the user provides to instantiate the
+ definition, i.e., whenever a definition is created, a new object of a particular definition type comes
+ into existence.
+
+ Example:
+ [Part : PartOne]
+ In this example, the type of definition is Part and the name of the definition is PartOne.
+ Types of Definitions
+ The various definitions in TDL are categorized as follows:
+  Interface Definitions – Menu, Report, Form, Part, Line, Fields, Button, Table
+  Data Definitions– Object, Variable, Collection
+  Formatting Definitions – Border, Style, Color
+  Integration Definitions – Import Object, Import File
+  Action Definitions – Key
+  System Definitions
+
+Menu: A Menu displays a list of options. The Tally.ERP 9 application determines the action to be
+ performed on the basis of the Menu Item selected by the user. The ‘Gateway of Tally’ is an
+ example of a ‘Menu’. A Menu can activate another Menu or Report.
+ Report: This is the fundamental definition of TDL. Every screen which appears in Tally.ERP 9,
+ i.e., any input screen or output screen, is created using the ‘Report’ definition. A Report consists
+ of one or more Forms.
+ Form: A Form consists of one or more Parts.
+ Part: A Part consists of one or more Lines.
+ Line: A Line consists of one or more Fields.
+ Field: It is the place where data (constant or variable) is actually displayed/entered.
+ Button: The user can perform an action in three ways, i.e., by selecting a menu item, by pressing
+ a key or by clicking on a button. The ‘Button’ definition allows the user to display a button on the
+ Button bar and execute an action, when it is clicked.
+ Table: The ‘Table’ defin
+
+
+
+					Data Definitions
+ Definitions which are used for storing the data are referred to as Data Definitions.
+
+
+Object: An object is the definition which consists of data, and the associated/related functions,
+commonly called as methods that manipulate the data. TDL is made up of User interface and Info
+Objects. Info Objects can be External (user defined) or Internal (platform defined). External or
+user-defined objects are not persistent in the Tally database. It is not possible to create an Internal
+Object Definition in TDL, i.e., they are predefined by the platform. It is, though, possible to perform
+modifications on it. A Ledger/Group is an example of an internal object. An object can further contain an object/objects.
+
+ Collection: A Collection is a group of objects. Collections can be made up of internal or external
+ objects. These can be based on multiple collections also. We can create a collection by
+ aggregating the collections at a lower level in the hierarchy of objects.
+
+ Variables: Variables are used to control the behaviour of reports and its contents. The variables
+ can assume different values during the execution, and based on those values, the application
+ behaves accordingly. The option Plain Paper/Pre-Printed, while printing the invoice, is an
+ example of a variable controlling the report.
+
+
+				Formatting Definitions
+Definitions which are used in formatting a user interface are referred to as Formatting Definitions.
+The definitions in this category are Border, Style and Color.
+
+ Border: This introduces a single/double line as per user specifications. Thin Box, Thin Line and
+ Common Border are all examples of pre-defined borders.
+
+ Style: The ‘Style’ definition determines the appearance of the text to be displayed by using a font
+ scheme. The Font name, Font style and Font size can be changed/defined using the ‘Style’ 
+definition. In default TDL, the pre-defined Style definitions are Normal Bold, Normal Italic and
+ Normal Bold Italic.
+
+ Color: The ‘Color’ definition is used to define a color. A name can be given to an RGB value of
+ color. Once a name is assigned to an RGB color value, it can be expressed as an attribute. In
+ TDL, the only color names that can be specified are Crystal Blue and Canary Yellow.
+
+
+
+
+					 Integration Definitions
+ Definitions which make the import of data available in SDF (Standard Data Format) are referred to
+ as Integration Definitions. ‘Import Object’ and ‘Import File’ are the two definitions classified in this
+ category
+
+ Import Object: The importable objects can be of the type Groups, Ledgers, Cost centre, Stock Items, Stock Groups,
+ Vouchers, etc.
+
+ Import File: The ‘Import file’ definition allows the user to describe the structure of each record in
+ the ASCII file that is being imported. The field width is specified as an attribute of this definition.
+
+ Action Definitions: The action definitions allow the user to define an action, to take place when a key combination is pressed.
+
+Key: The ‘Key’ Definition is used to associate an action with a key combination. The action is
+ performed when the associated key combination is pressed.
+
+
+
+					 System Definitions
+ System Definitions are viewed as being created by the administrator profile. Any items defined under System Definitions are available globally across the application. System Definitions can be defined any number of times in TDL. The items defined are appended
+ to the existing list. System Definitions cannot be modified.
+ Examples of System Definitions are System: Variable, System: Formula, System: UDF and System: TDL Names.
+
+ 						Attributes
+ Each definition has properties, referred to as ‘Attributes’. There is a predefined set of attributes provided by the platform for each definition type. The attribute specifies the behaviour of a definition. Attributes differ from Definition to Definition. A Definition can have multiple attributes associated with it. Each attribute has a 'Name' (predefined) and an assigned value (provided by the programmer). A value can be associated to a given attribute either directly, or through symbols and prefixes. Apart from a direct value association of the attribute, there are ways to associate alternate values dynamically, based on certain conditions prevailing at runtime.
+ Syntax
+ [<Definition Type> : <Definition Name>]
+     <Attribute Name> : <Attribute Value>
+ Where,
+ <Attribute Name> is the name of an attribute, specific for the definition type.
+ <Attribute Value> can be a constant or a formula.
+ Example:
+ [Part  : PartOne] 
+Line : PartOne
+
+
+
+ 					Classification of Attributes
+ The classification of attributes is done based on the number of values they accept, and if they can be specified multiple times under the definition, i.e., based on the number of sub-attributes and the number of values.
+ There are seven types of attributes:
+
+ Single and Single List : A Single type attribute accepts only one value and can’t be specified multiple times. The attributes Set As, Width, Style, etc., are all of ‘Single’ type.
+ Example:
+[Field : Fld 1]
+	Set As : “Hello” 
+	Set As : “TDL”
+
+ In this field, the string “TDL” is displayed, as ‘Set As’ is a ‘Single’ type attribute. The value of the last specified attribute will be displayed.
+ A Single List type attribute accepts one value, which can be specified multiple times. This attribute also accepts a comma-separated list.
+ Example:
+ [Line : Line 1]
+ 	Field : Fld 1, Fld 2 
+	Field : Fld 3
+ The line Line 1 will have three fields Fld 1, Fld 2 and Fld 3.
+
+ Dual and Dual List:- Dual type attributes accept two values, and can’t be specified multiple times. The attribute ‘Repeat’ is an example of ‘Dual’ type.
+ Example:
+ Repeat : Line 1 : Collection 1
+ Dual List type attributes accept two values, and can be specified multiple times.
+ Example:
+ Set : Var 1 : “Hello”
+ Set : Var 2 : “TDL”
+ The values “Hello” and “TDL” are being assigned to the variables Var 1 and Var 2, respectively.
+ Triple and Triple List
+ Triple type attributes accept three values, and can’t be specified multiple times.
+ Example:
+ Object : Ledger Entries : First: $LedgerName = “Tally”
+ Triple List type attributes accept three values, and can be specified multiple times.
+ Example:
+ Aggr Compute : TrPurcQty: Sum : $BilledQty 
+Aggr Compute: TrSaleQty : Sum : $BilledQty
+ The Attribute type ‘Menu item’
+ The attribute type ‘Menu Item’ allows the user to add a menu item in the given ‘Menu’ definition.
+ Example:
+ [#Menu : Gateway Of Tally]
+ Item : Sales Analysis : Display : Sales Analysis
+ Item : Purchase Analysis : P : Display : Purchase Analysis
+ Here, the options ‘Sales Analysis’ and ‘Purchase Analysis’ are added to the ‘Gateway of Tally’
+ Menu. For the option ‘Purchase Analysis’, the character ‘P’ is explicitly specified as a hot key.
